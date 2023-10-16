@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
-import "./dashboard.css"
+import { AiOutlineClose, AiOutlineMenuUnfold } from "react-icons/ai"
 import { MdDashboardCustomize } from "react-icons/md"
-import { AiOutlineMenuUnfold, AiOutlineClose } from "react-icons/ai"
 import { pages } from "../../utils/routes"
+import "./dashboard.css"
 const Dashboard = () => {
   const [swidth, setswidth] = useState(window.innerWidth)
   const [click, setClick] = useState(false)
@@ -22,7 +22,7 @@ console.log('Object.values(pages)', Object.values(pages)[0])
   return (
     <div className="mainDiv">
       {swidth <= 640 && !click && (
-        <div className="navBar">
+        <div className="navBar" style={{width:swidth}}>
           <AiOutlineMenuUnfold
             style={{ marginLeft: 17 }}
             color="#fff"

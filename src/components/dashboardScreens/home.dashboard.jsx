@@ -1,50 +1,91 @@
-import React from "react"
-import Card from "../../hoc/Custum-card"
-import cardData from"../../json/cardComponent.json"
-import './dashboardComponent.css'
+import React from "react";
+import CustomChart from "../../hoc/Chart";
+import Card from "../../hoc/Custum-card";
+import CustomPieChart from "../../hoc/PieChart";
+import cardData from "../../json/cardComponent.json";
+import "./dashboardComponent.css";
+
 const DashboardHome = () => {
   return (
-    <div style={{width:'100%'}}>
+    <div style={{ width: "100%", height: "100vh", overflow:"scroll" }}>
       <div
-        style={{
-          padding: 12,
-          fontSize: 16,
-          fontWeight: "bold",
-          color: "black",
-        }}
+        // style={{
+        //   padding: 12,
+        //   fontSize: 16,
+        //   fontWeight: "bold",
+        //   color: "black",
+        // }}
+        className="headingText"
       >
         Hello Rancho
       </div>
-    <div className="cardDiv">
-        {
-      cardData?.map((value)=>{
-          return <Card style={{marginBottom:2}}>
-            <div style={{display:"flex"}} >
-               <img src="" alt="" srcset="" height={120} width={150} />
-               <div style={{padding:2,}}>
-              <div> {
-                  value.name
-                  
-                }
-                </div> 
-                <div>
-                {
-                  value.total
-                  
-                }
+      <div className="cardDiv">
+        {cardData?.map((value) => (
+          <Card >
+            <div style={{ display: "flex" }}>
+              <img src={value.image} alt="" srcset="" height={124} />
+              <div style={{ padding: 12 }}>
+                <div className="text1">{value.name}</div>
+                <div className="text2">{value.total}</div>
+                <div className="text3">
+
+                {value.increment ? value.increment : value.decrement}
                 </div>
-                {
-                  value.increment?value.increment:value.decrement
-                  
-                }
-               </div>
+              </div>
             </div>
           </Card>
-        })
-      }
+        ))}
+      </div>
+      <div className="chartDiv">
+        <div className="chartContainer1">
+          <Card>
+            <CustomChart />
+          </Card>
+        </div>
+        <div className="chartContainer2">
+         
+        <Card>
+            <CustomPieChart />
+            </Card>
+        </div>
+      </div>
+      <div className="customerDetailsContainer">
+        <Card>
+          <div className="heading">
+             <h3>Product sell</h3>
+          <div>
+          <input/> 
+          </div>
+          </div>
+           <div className="heading" style={{opacity:0.3,fontSize:18}}>
+            <h4>
+            Product Name
+            </h4>
+            <div style={{display:'flex', width:200, justifyContent:"space-between" ,fontSize:18}}>
+                 <p> Stock</p>
+                 <p> Price</p>
+                 <p> Total sales</p>
+          </div>
+           </div>
+           {
+            [0,1,2,3,4].map((value)=>{
+              return  <div className="heading" style={{opacity:0.3,fontSize:14}}>
+              <h4>
+               static
+              </h4>
+              <div style={{display:'flex', width:200, justifyContent:"space-between",fontSize:14}}>
+                   <p> Stock</p>
+                   <p> Price</p>
+                   <p> Total sales</p>
+            </div>
+             </div>
+            })
+           }
+            
+        </Card>
+      </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default DashboardHome
+export default DashboardHome;
