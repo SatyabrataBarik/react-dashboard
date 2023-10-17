@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react"
-import { AiOutlineClose, AiOutlineMenuUnfold } from "react-icons/ai"
+import { AiFillCustomerService, AiOutlineClose, AiOutlineMenuUnfold, AiOutlineMoneyCollect, AiTwotoneDashboard } from "react-icons/ai"
+import { BiHelpCircle, BiSolidOffer } from "react-icons/bi"
 import { MdDashboardCustomize } from "react-icons/md"
+import { RiProductHuntFill } from "react-icons/ri"
 import { pages } from "../../utils/routes"
 import "./dashboard.css"
 const Dashboard = () => {
   const [swidth, setswidth] = useState(window.innerWidth)
   const [click, setClick] = useState(false)
+  const [index,setIndex]=useState(0)
   useEffect(() => {
     const handleResize = () => {
       setswidth(window.innerWidth)
@@ -48,11 +51,12 @@ console.log('Object.values(pages)', Object.values(pages)[0])
               )}
             </div>
             <div className="tabDiv">
-              <h4>dashboard</h4>
-              <h4>dashboard</h4>
-              <h4>dashboard</h4>
-              <h4>dashboard</h4>
-              <h4>dashboard</h4>
+              <h4><AiTwotoneDashboard color="#fff"/> Dashboard</h4>
+              <h4><RiProductHuntFill color="#fff"/>Product</h4>
+              <h4><AiFillCustomerService color="#fff"/>Custumer</h4>
+              <h4><AiOutlineMoneyCollect color="#fff"/>income</h4>
+              <h4><BiSolidOffer color="#fff"/>Promote</h4>
+              <h4><BiHelpCircle color="#fff"/>Help</h4>
             </div>
           </div>
           <div className="body">
@@ -62,7 +66,7 @@ console.log('Object.values(pages)', Object.values(pages)[0])
        
       </div>
         {
-      pages[0]
+      pages[index]
     }
     </div>
   )

@@ -69,8 +69,9 @@ const DashboardHome = () => {
            </div>
            {
             [0,1,2,3,4].map((value)=>{
-              return  <div className="heading" style={{opacity:0.3,fontSize:14}}>
+              return  <div className="heading" style={{fontSize:14}}>
               <h4>
+                <img src="https://www.seiu1000.org/sites/main/files/main-images/camera_lense_0.jpeg" height={70}/>
                static
               </h4>
               <div style={{display:'flex', width:200, justifyContent:"space-between",fontSize:14}}>
