@@ -51,12 +51,14 @@ console.log('Object.values(pages)', Object.values(pages)[0])
               )}
             </div>
             <div className="tabDiv">
-              <h4><AiTwotoneDashboard color="#fff"/> Dashboard</h4>
+             <div style={{display:"flex", flexDirection:'column' ,gap:12}}>
+             <h4 ><AiTwotoneDashboard color="#fff"/> Dashboard</h4>
               <h4><RiProductHuntFill color="#fff"/>Product</h4>
               <h4><AiFillCustomerService color="#fff"/>Custumer</h4>
               <h4><AiOutlineMoneyCollect color="#fff"/>income</h4>
               <h4><BiSolidOffer color="#fff"/>Promote</h4>
               <h4><BiHelpCircle color="#fff"/>Help</h4>
+             </div>
             </div>
           </div>
           <div className="body">
